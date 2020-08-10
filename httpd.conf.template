@@ -1,0 +1,33 @@
+# Settings to add to C:/Apache24/conf/httpd.conf
+# update as needed
+
+#
+# ServerName gives the name and port that the server uses to identify itself.
+# This can often be determined automatically, but we recommend you specify
+# it explicitly to prevent problems during startup.
+#
+# If your host doesn't have a registered DNS name, enter its IP address here.
+#
+# ServerName localhost:80 # use this if you're running this on a VirtualBox VM or PC
+ServerName 192.168.43.1:80
+
+
+# Django Project
+LoadFile "c:/users/shaamareer/appdata/local/programs/python/python36/python36.dll"
+LoadModule wsgi_module "c:/users/shaamareer/appdata/local/programs/python/python36/lib/site-packages/mod_wsgi/server/mod_wsgi.cp36-win_amd64.pyd"
+WSGIPythonHome "c:/users/shaamareer/appdata/local/programs/python/python36"
+
+WSGIScriptAlias / "C:/Users/shaamareer/Desktop/djangoprojects/qalam_online/qalam_online/wsgi.py"
+
+WSGIPythonPath "C:/Users/shaamareer/Desktop/djangoprojects/qalam_online/"
+
+<Directory "C:/Users/shaamareer/Desktop/djangoprojects/qalam_online/qalam_online/">
+    <Files wsgi.py>
+        Require all granted
+    </Files>
+</Directory>
+
+Alias /static "C:/Users/shaamareer/Desktop/djangoprojects/qalam_online/static/"
+<Directory "C:/Users/shaamareer/Desktop/djangoprojects/qalam_online/static/">
+    Require all granted
+</Directory>

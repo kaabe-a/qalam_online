@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        
+      </div>
+      <div class="col-sm-6">
+           {%if user.is_authenticated%}
+           welcome {{user}}
+           {%else%}
+           Already have an account ?
+          <a href="{%url 'login'%}">login here</a>
+          <hr>
+          Not a member ?
+           {%endif%}
+            <a href="{%url 'student_signup'%}">register here</a>
+      </div>
+      <div class="col-sm-3">
+        
+      </div>
+    </div>
+  </div>
+{% endblock %}
